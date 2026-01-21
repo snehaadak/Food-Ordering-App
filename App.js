@@ -1,4 +1,8 @@
-const heading = document.createElement("h1");
-            heading.innerHTML = "Hello World! from Javascript";
-            const root1 = document.getElementById("root1");
-            root1.appendChild(heading)
+const parent = React.createElement("h1",{id:parentElement},
+    [React.createElement("h2",{id:parentElement},Child1),
+    React.createElement("h2",{id:parentElement},Child2)  
+    ]
+)
+
+const root = ReactDOM.createRoot(document.getElementById("root2"))
+root.render(parent)
