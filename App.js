@@ -1,8 +1,9 @@
-const parent = React.createElement("h1",{id:parentElement},
-    [React.createElement("h2",{id:parentElement},Child1),
-    React.createElement("h2",{id:parentElement},Child2)  
+const parent = React.createElement("div",{id:parentElement},
+    React.createElement("div",{id:chilElment},[
+        React.createElement("h2",{},Child1),
+        React.createElement("h2",{},Child2)  
     ]
-)
+))
 
-const root = ReactDOM.createRoot(document.getElementById("root2"))
-root.render(parent)
+const root2 = ReactDOM.createRoot(document.getElementById("root2"))
+root2.render(parent)
