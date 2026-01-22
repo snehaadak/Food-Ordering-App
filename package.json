@@ -1,0 +1,22 @@
+{
+  "name": "food-ordering-app",
+  "version": "1.0.0",
+  "description": "Food Ordering App - Mini Clone for swiggy or zomato",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snehaadak/Food-Ordering-App.git"
+  },
+  "author": "Sneha Adak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/snehaadak/Food-Ordering-App/issues"
+  },
+  "homepage": "https://github.com/snehaadak/Food-Ordering-App#readme",
+  "devDependencies": {
+    "parcel": "^2.16.3"
+  }
+}
