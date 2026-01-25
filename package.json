@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "Food Ordering App - Mini Clone for swiggy or zomato",
   "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "repository": {
