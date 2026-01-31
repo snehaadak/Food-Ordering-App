@@ -8,11 +8,13 @@ const SearchBar = () => {
         </div>
     )
 }
+
+
 const Header = () => {
     return (
         <div className="header">
             <div className="Logo">
-                <h1>logo</h1>
+                <h1>Dineo Logo</h1>
             </div>
             <div className="searchBar">
                 <SearchBar/>
@@ -32,7 +34,12 @@ const Header = () => {
 const RestroCard = () =>{
     return (
         <div className="RestroCard">
-            <h3>Dominos</h3>
+            <img className="restroBanner" alt="restroBanner"
+            src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2025/11/11/cbf23535-b379-4d95-a0ca-32b06b268a13_25459.JPG"></img>
+            <h3>Restro Name</h3>
+            <h4>Cuisines</h4>
+            <h5>Ratings</h5>
+            <h5>ETA</h5>
         </div>
     )
 }
@@ -41,6 +48,15 @@ const Body = () => {
     return (
         <div className="body">
             <div className="resContainer">
+                <RestroCard/>
+                <RestroCard/>
+                <RestroCard/>
+                <RestroCard/>
+                <RestroCard/>
+                <RestroCard/>
+                <RestroCard/>
+                <RestroCard/>
+                <RestroCard/>
                 <RestroCard/>
             </div>
         </div>
