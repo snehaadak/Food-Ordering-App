@@ -9,6 +9,7 @@
     padding: 0 20px;
     border: 3px solid #A3786E;
     border-radius: 8px;
+    height: 60px;
 }
 
 .navItems > ul{
@@ -21,6 +22,19 @@
 
 .navItems > ul > li {
     cursor: pointer;
+}
+
+.FilterContainer{
+    display: flex;
+    align-items: center;
+    height: 50px;
+    margin: 20px
+}
+
+.TopRatedBTN{
+    border-radius: 25px;
+    border: 1px solid #A3786E;
+    margin-right: 20px;
 }
 
 .searchBar{
