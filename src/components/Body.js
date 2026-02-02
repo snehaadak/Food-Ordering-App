@@ -15,8 +15,16 @@ const Body = () => {
     return (
         <div className="body">
             <div className="FilterContainer">
-                <div className="TopRatedBTN">
-                    <button>Top Rated Restuarants</button>
+                <div>
+                    <button 
+                        className="TopRatedBTN"
+                        onClick={()=>{
+                            resList = resList.filter(
+                                (res) => res.info.avgRating > 4
+                            );
+                            console.log(resList)
+                        }}
+                    >Top Rated Restuarants</button>
                 </div>
                 <div className="searchBar">
                 <SearchBar/>
