@@ -4,8 +4,6 @@ import { resList } from "../utils/mockData";
 import  {useState} from "react";
 
 
-
-
 const SearchBar = () => {
     return (
         <div>
