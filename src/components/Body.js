@@ -1,6 +1,9 @@
 import { CuisineChoices } from "./CuisineChoices";
 import RestroCard from "./RestroCard";
 import { resList } from "../utils/mockData";
+import  {useState} from "react";
+
+
 
 
 const SearchBar = () => {
@@ -12,6 +15,9 @@ const SearchBar = () => {
 }
 
 const Body = () => {
+
+    const [listofRestros,setlistofRestros] = useState(resList);
+
     return (
         <div className="body">
             <div className="FilterContainer">
@@ -19,10 +25,10 @@ const Body = () => {
                     <button 
                         className="TopRatedBTN"
                         onClick={()=>{
-                            resList = resList.filter(
-                                (res) => res.info.avgRating > 4
+                            const filteredList = listofRestros.filter(
+                                (res) => res.info.avgRating > 4.2
                             );
-                            console.log(resList)
+                            setlistofRestros(filteredList)
                         }}
                     >Top Rated Restuarants</button>
                 </div>
@@ -42,7 +48,7 @@ const Body = () => {
             <div className="restro-Container">
 
                 {
-                    resList.map(restuarant => <RestroCard key={restuarant.info.id} resData = {restuarant}/>)
+                    listofRestros.map(restuarant => <RestroCard key={restuarant.info.id} resData = {restuarant}/>)
                 }
             </div>
             
