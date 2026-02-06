@@ -1,7 +1,6 @@
 import { CuisineChoices } from "./CuisineChoices";
 import RestroCard from "./RestroCard";
-import { resList } from "../utils/mockData";
-import  {useState} from "react";
+import  {useEffect, useState} from "react";
 
 
 const SearchBar = () => {
@@ -14,7 +13,22 @@ const SearchBar = () => {
 
 const Body = () => {
 
-    const [listofRestros,setlistofRestros] = useState(resList);
+    const [listofRestros,setlistofRestros] = useState([]);
+
+    useEffect(()=>{
+        fetchData();
+    }, []);
+
+    const fetchData = async () => {
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5539311&lng=73.9476257&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const json = await data.json();
+
+  setlistofRestros(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+    }
+
+    if(listofRestros.length === 0){
+        return <h1>loading.........</h1>
+    }
 
     return (
         <div className="body">
