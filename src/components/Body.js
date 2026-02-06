@@ -1,6 +1,7 @@
 import { CuisineChoices } from "./CuisineChoices";
 import RestroCard from "./RestroCard";
 import  {useEffect, useState} from "react";
+import { ShimmerUI } from "./ShimmerUI";
 
 
 const SearchBar = () => {
@@ -27,7 +28,7 @@ const Body = () => {
     }
 
     if(listofRestros.length === 0){
-        return <h1>loading.........</h1>
+        return <ShimmerUI/>
     }
 
     return (
