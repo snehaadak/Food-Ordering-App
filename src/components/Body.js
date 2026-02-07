@@ -35,10 +35,25 @@ const Body = () => {
                         onClick={()=>{
                             const filteredList = listofRestros.filter(
                                 (res) => res.info.avgRating > 4.2);
-                                setlistofRestros(filteredList)
+                                setfilterRestuarants(filteredList)
                             }}>Top Rated Restuarants</button>
                 </div>
-                
+                <div className="searchBar">
+                    <input
+                        type="text"
+                        className="SeachtextBox"
+                        value= {searchText}
+                        onChange={(e) => {
+                            setsearchText(e.target.value)
+                        }}/>
+
+                    <button className="SearchButton"
+                        onClick={()=>{console.log(searchText)
+                            const filteredRestros = 
+                            listofRestros.filter((res)=> res.info.name.toLowerCase().includes(searchText.toLowerCase()))
+                            setfilterRestuarants(filteredRestros)
+                                }}>Search</button>
+                </div>
             </div>
             
             <h3>What's On Your Mind?</h3>
