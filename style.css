@@ -169,3 +169,11 @@
     height: 25px;
     
 }
+
+.userCard{
+    border: 1px solid #A3786E;
+    border-radius: 25px; 
+    width: 300px;
+    margin: 20px;
+    padding: 20px;
+}
