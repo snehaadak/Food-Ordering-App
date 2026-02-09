@@ -34,25 +34,27 @@ const Body = () => {
 
     return (
         <div className="body">
-            <div className="FilterContainer">
+            <div className="flex p-5">
                 <div>
-                    <button className="TopRatedBTN"
+                    <button className="rounded-2xl border ml-30 w-50 hover:cursor-pointer shadow hover:shadow-amber-500"
                         onClick={()=>{
                             const filteredList = listofRestros.filter(
                                 (res) => res.info.avgRating > 4.2);
                                 setfilterRestuarants(filteredList)
                             }}>Top Rated Restuarants</button>
                 </div>
-                <div className="searchBar">
+
+
+                <div className="ml-20">
                     <input
                         type="text"
-                        className="SeachtextBox"
+                        className="rounded-2xl border pl-4 w-100"
                         value= {searchText}
                         onChange={(e) => {
                             setsearchText(e.target.value)
                         }}/>
 
-                    <button className="SearchButton"
+                    <button className="rounded-2xl border w-15 ml-3 hover:cursor-pointer shadow hover:shadow-amber-500"
                         onClick={()=>{console.log(searchText)
                             const filteredRestros = 
                             listofRestros.filter((res)=> res.info.name.toLowerCase().includes(searchText.toLowerCase()))
@@ -61,15 +63,15 @@ const Body = () => {
                 </div>
             </div>
             
-            <h3>What's On Your Mind?</h3>
-            <div className="cusine-choices">
+            <h3 className="pl-10 pt-5 text-2xl">What's On Your Mind?</h3>
+            <div className="mb-7">
                 <CuisineChoices/>
             </div>
             <div>
                 
             </div>
-            <h3>Restuarants at your Door-steps?</h3>
-            <div className="restro-Container">
+            <h3 className="pl-10 pt-5 text-2xl">Restuarants at your Door-steps?</h3>
+            <div className="grid grid-cols-[repeat(auto-fill,minmax(18rem,1fr))] justify-start gap-6 p-6">
 
                 {
                     filteredResturants.map(restuarant => 

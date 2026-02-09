@@ -1,34 +1,51 @@
-import React from "react"
+import React from "react";
 
+class UserClass extends React.Component{
 
-    class UserClass extends React.Component{
-
-        constructor(props){
+    constructor(props) {
             super(props);
 
             this.state = {
-                count: 0,
-            }
-
-            console.log("Child Constructor")
+                userInfo : {
+                    name : "Dummy Name",
+                    location: "Default Location "
+                },
+                count : 0
+            }      
         }
 
-        render(){
-            console.log("Child Render")
-            return (
-                <div className="userCard">
-                    <h2>Class Based Component</h2>
-                    <h3>Name: {this.props.name}</h3>
-                    <h4>Location: Pune</h4>
-                    <h4>Contact: <a href="https://github.com/snehaadak">Sneha@github</a></h4>
-                    <h3>Count: {this.state.count}</h3>
-                    <button onClick={()=>
-                        this.setState({
-                            count: this.state.count + 1})
-                            }>counter</button>
-                </div>
-            )
+
+    async componentDidMount() {
+
+            const data = await fetch ("https://api.github.com/users/snehaadak");
+            const json = await data.json();
+
+            this.setState ({
+                userInfo : json
+            })
         }
+
+        
+    render(){
+
+        const {name, location} = this.state.userInfo
+
+        return (
+            <div className="p-5 w-80 mb-6 border border-blue-300 bg-blue-200 rounded-2xl shadow hover:shadow-gray-500">
+            <h4 className="font-bold pb-3 font-serif" >This is {this.props.content}</h4>
+            <h2 className="font-bold pb-1">{name}</h2>
+            <h4>{location}</h4>
+            <h4>GitHub: @snehaadak</h4>
+            <h4 className="mb-3">State Variable:{this.state.count}</h4>
+            <button className="border p-2 bg-gray-300 rounded-2xl hover:cursor-pointer" onClick={()=>{
+                    //Updating a state variable inside a Class component
+                    this.setState({
+                        count: this.state.count +1
+                    })
+                }}>Count Increase</button>
+        </div>
+        )
     }
+}
 
-    export default UserClass
+export default UserClass;

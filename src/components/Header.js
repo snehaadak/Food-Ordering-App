@@ -10,30 +10,28 @@ const Header = () => {
  const onlineStatus = useOnlineStatus()
 
     return (
-        <div className="header">
+        <div className="flex justify-between border m-3 rounded-3xl shadow shadow-gray-400">
             <div className="Logo">
-                <img 
+                <img className="w-30 pt-2 pl-2"
                     src={AppLogo} 
                     alt="Dineo Logo" 
-                    className="appLogo"
                 />
             </div>
             
             <div className="navItems">
-                <ul>
-                    <li>
-                        {onlineStatus ? "🟢Online" : "🔴Offline" }
-                    </li>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/about">About Us</Link></li>
-                    <li><Link to="/contact">Contact Us</Link></li>
-                    <li>Cart</li>
-                    <button className="login" onClick={()=>{
+                <ul className="flex p-4 m-2">
+                    <li className="p-4 font-serif">{onlineStatus ? "🟢Online" : "🔴Offline" }</li>
+                    <li className="p-4 font-serif"><Link to="/">Home</Link></li>
+                    <li className="p-4 font-serif"><Link to="/about">About Us</Link></li>
+                    <li className="p-4 font-serif"><Link to="/DineosGrocery">Grocery</Link></li>
+                    <li className="p-4 font-serif">Cart</li>
+                    <li className="p-4 font-serif">
+                    <button className="border-2 w-20 bg-gray-300 rounded-2xl hover:cursor-pointer" onClick={()=>{
                         loginButton === "Login" ? 
                         setloginButton("Logout"):
                         setloginButton("Login")}
                     }
-                        >{loginButton}</button>
+                        >{loginButton}</button></li>
                 </ul>
             </div>   
         </div>
