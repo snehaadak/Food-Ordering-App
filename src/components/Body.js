@@ -3,6 +3,7 @@ import RestroCard from "./RestroCard";
 import  {useEffect, useState} from "react";
 import { ShimmerUI } from "./ShimmerUI";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 
 
@@ -11,6 +12,7 @@ const Body = () => {
     const [listofRestros,setlistofRestros] = useState([]);
     const [filteredResturants, setfilterRestuarants] = useState([])
     const [searchText, setsearchText] = useState("")
+    const onlineStatus = useOnlineStatus();
 
     useEffect(()=>{
         fetchData();
@@ -23,6 +25,8 @@ const Body = () => {
         setlistofRestros(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
         setfilterRestuarants(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants)
     }
+
+    if(onlineStatus=== false) return <h1>Looks like you are offline please check your internet connection!!</h1>
 
     if(listofRestros.length === 0){
         return <ShimmerUI/>
