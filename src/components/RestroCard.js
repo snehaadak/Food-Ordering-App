@@ -23,4 +23,15 @@ const RestroCard = (props) => {
     );
 };
 
+export const recommended  = (RestroCard) => {
+    return (props) => {
+        return (
+            <div className="relative w-fit inline-block">
+                <label className="absolute top-2 left-2 bg-white text-black text-s font-semibold px-2 py-1 rounded shadow z-10">Recommended</label>
+                <RestroCard {...props}/>
+            </div>
+        )
+    }; 
+}
+
 export default RestroCard;

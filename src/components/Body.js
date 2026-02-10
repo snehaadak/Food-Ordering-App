@@ -4,6 +4,7 @@ import  {useEffect, useState} from "react";
 import { ShimmerUI } from "./ShimmerUI";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { recommended } from "./RestroCard";
 
 
 
@@ -13,6 +14,7 @@ const Body = () => {
     const [filteredResturants, setfilterRestuarants] = useState([])
     const [searchText, setsearchText] = useState("")
     const onlineStatus = useOnlineStatus();
+    const RecommendedRestro = recommended(RestroCard);
 
     useEffect(()=>{
         fetchData();
@@ -76,7 +78,7 @@ const Body = () => {
                 {
                     filteredResturants.map(restuarant => 
                     <Link key={restuarant.info.id} to={"/restuarants/"+ restuarant.info.id} >
-                    <RestroCard key={restuarant.info.id} resData = {restuarant}/></Link>)
+                    {restuarant.info.avgRating >= 4.3 ? <RecommendedRestro resData = {restuarant}/> : <RestroCard resData = {restuarant}/>}</Link>)
                 }
             </div>
             
